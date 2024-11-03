@@ -1,0 +1,112 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}Checkout{% endblock title %}
+
+{% block main-content %}
+<div class="container">
+    {% if messages %}
+    {% for msg in messages %}
+    <div class="alert alert-danger" role="alert">
+        {{msg}}
+
+    </div>
+    {% endfor %}
+    {% endif %}
+    <div class="row mt-5">
+        <div class="col-sm-6">
+            <h4 style="color: rgb(57, 102, 102);">Order Summary</h4>
+            <hr>
+            {% for item in cart_items %}
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h5 style="color: rgb(57, 102, 102);">Product : {{item.product.title}}</h5>
+                    <p style="color: rgb(57, 102, 102);">Quantity : {{item.quantity}}</p>
+                    <p class="fw-bold" style="color: rgb(211, 102, 102);">Price : {{item.product.discount_price}}</p>
+                </div>
+            </div>
+            {% endfor %}
+            <p class="fw-bold" style="color: rgb(204, 100, 100)">Total Cost + Rs. 40 = {{totalamount}}</p>
+            <small style="color: rgb(57, 102, 102);">Term and Condition: Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus voluptatem porro eius vero delectus officia architecto corporis rem beatae cupiditate, saepe voluptate, adipisci illum sint expedita, quaerat dolores labore quis?Lorem, ipsum dolor sit amet consectetur adipisicing elit.</small>
+        </div>
+        <div class="col-sm-4 offset-sm-1">
+            <h4 style="color: rgb(57, 102, 102);">Select Shipping Address</h4>
+            <hr>
+            <form action="" method="post" id="myform">
+                {% csrf_token %}
+                {% for ad in add %}
+                <div class="card">
+                    <div class="card-body">
+                        <h5 style="color: rgb(57, 102, 102);">{{ad.name}}</h5>
+                        <p style="color: rgb(57, 102, 102);">Mobile : {{ad.mobile}}</p>
+                        <p style="color: rgb(57, 102, 102);">{{ad.locality}} {{ad.city}}{{ad.state}}{{ad.zipcode}}</p>
+                    </div>
+                </div>
+                <div class="form-check mt-2 mb-5">
+                    <input type="radio" class="form-check-input" name="custid" id="custadd{{forloop.counter}}" value="{{ad.id}}">
+                    <label for="custadd{{forloop.counter}}" class="form-check-label fw-bold" style="color: rgb(57, 102, 102);">Address : {{forloop.counter}}</label>
+                </div>
+                {% endfor %}
+                <div class="form-check mb-3">
+                    <label for="totamount" class="form-label" style="color: rgb(57, 102, 102);">Total Amount</label>
+                    <input style="color: rgb(192, 75, 75)" type="number" name="totamount" id="" class="form-control" value="{{totalamount }}" readonly>
+                </div>
+                <div class="text-end">
+                    <!-- <button type="submit" class="btn btn-warning mt-3 px-5fw-bold">Continue</button> -->
+                    <!-- <div id="paypal-button-container"></div> -->
+                    <button id="rzp-button1" type="submit" class="btn btn-warning mt-3 px-5 fw-bold">Payment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> <br><br><br>
+{% endblock main-content %}
+                        
+{% block payment-gateway %}
+
+
+<script>
+var options = {
+    "key": "rzp_test_qrTILwvklytMvh", // Enter the Key ID generated from the Dashboard
+    "amount": "{{razoramount}}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Chocolates",
+    "description": "Purchase Product",
+    "order_id": "{{order_id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+        console.log("Success")
+        var form = document.getElementById("myform")
+        // alert(response.razorpay_payment_id);
+        // alert(response.razorpay_order_id);
+        // alert(response.razorpay_signature)
+        window.location.href = 'http://localhost:3000/paymentdone?order_id=${response.razorpay_order_id}&payment_id=${response.razorpay_payment_id}&cust_id=${form.elements["custid"].value}'
+    },
+    // "prefill": {
+    //     "name": "Gaurav Kumar",
+    //     "email": "gaurav.kumar@example.com",
+    //     "contact": "9000090000"
+    // },
+    // "notes": {
+    //     "address": "Razorpay Corporate Office"
+    // },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+rzp1.on('payment.failed', function (response){
+        // alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+});
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+</script>
+
+{% endblock payment-gateway %}

@@ -1,0 +1,29 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}About{% endblock title %}
+
+{% block banner %}
+
+  {% endblock banner %}
+
+{% block main-content %}
+<br><br>
+<div style="background-color: aliceblue;">
+<h2 class="text-center" >Contact Us</h2>
+<br>
+
+<div class="row container" >
+  
+   <input type="text" name="" id="" placeholder=" First Name" size="0px"><br><br>
+
+   <input type="text" name="" id="" placeholder=" Last Name" size="1px"><br><br>
+
+   <textarea name="" id="" placeholder="Address"></textarea><br><br>
+   <input type="phone" name="" id="" placeholder=" Phone Number" size="1px"><br><br>
+   <input type="email" name="" id="" placeholder=" Email" size="1px"><br><br>
+   <button  type="submit" class="btn btn-success mt-3 px-5 fw-bold"><a href="{% url 'index' %}" class="btn">Submit</a></button>
+
+
+</div></div><br><br><br><br><br><br><br><br>  
+{% endblock main-content %}
