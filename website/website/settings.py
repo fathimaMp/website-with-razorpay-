@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-=m8(f!*=vg0o1dg=3fnqla3coly++%%+g0u&=2r%gdrfci41p8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -131,3 +131,4 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 RAZOR_KEY_ID = "rzp_test_qrTILwvklytMvh"
 RAZOR_KEY_SECRET = "0eVlkIUIXxSUtummc10LNbhi"
 
+LOGIN_URL = '/account/login/'
