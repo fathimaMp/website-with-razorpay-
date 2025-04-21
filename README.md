@@ -54,60 +54,7 @@ Edit
 pip install -r requirements.txt
 Set up environment variables
 
-Create a .env file or update settings.py with your Razorpay credentials:
 
-python
-Copy
-Edit
-RAZOR_KEY_ID = 'your_razorpay_key'
-RAZOR_KEY_SECRET = 'your_razorpay_secret'
-Apply migrations
-
-bash
-Copy
-Edit
-python manage.py makemigrations
-python manage.py migrate
-Create superuser (for admin panel)
-
-bash
-Copy
-Edit
-python manage.py createsuperuser
-Run the server
-
-bash
-Copy
-Edit
-python manage.py runserver
-Open in browser
-
-cpp
-Copy
-Edit
-http://127.0.0.1:8000/
-📁 Project Structure
-swift
-Copy
-Edit
-project/
-│
-├── app/
-│   ├── migrations/
-│   ├── templates/app/
-│   ├── static/
-│   ├── models.py
-│   ├── views.py
-│   ├── forms.py
-│   └── urls.py
-│
-├── ecommerce/
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-│
-├── manage.py
-└── requirements.txt
 📸 Screenshots
 Add screenshots of the home page, cart, checkout, order, etc. if needed.
 
