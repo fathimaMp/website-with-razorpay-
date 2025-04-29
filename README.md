@@ -1,5 +1,5 @@
-🛒 Choco-Store( Django E-commerce Website )
---------------------------------------------
+Choco-Store( Django E-commerce Website )
+----------------------------------------
 
 A full-featured e-commerce web application built with Django and Razorpay payment integration.
 
