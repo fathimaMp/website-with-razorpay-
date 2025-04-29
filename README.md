@@ -3,7 +3,10 @@ Choco-Store( Django E-commerce Website )
 
 A full-featured e-commerce web application built with Django and Razorpay payment integration.
 
-📌 Features
+
+Features
+--------
+
 User Authentication (Login, Registration)
 
 Product listing by category and title
@@ -20,7 +23,9 @@ AJAX-based cart update (plus, minus, remove)
 
 Search functionality
 
-🧰 Tech Stack
+
+Tech Stack
+-----------
 Backend: Django
 
 Frontend: HTML, CSS, Bootstrap/Tailwind (as per your design)
