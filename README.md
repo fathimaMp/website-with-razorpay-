@@ -36,7 +36,10 @@ Payment Gateway: Razorpay
 
 Other Tools: Git, GitHub
 
-🚀 Setup Instructions
+
+Setup Instructions
+------------------
+
 Clone the repository
 
 bash
