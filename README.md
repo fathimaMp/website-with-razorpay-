@@ -37,24 +37,7 @@ Payment Gateway: Razorpay
 Other Tools: Git, GitHub
 
 
-Setup Instructions
-------------------
 
-Clone the repository
-
-bash
-Copy
-Edit
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
-Create and activate virtual environment
-
-bash
-Copy
-Edit
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-Install dependencies
 
 bash
 Copy
