@@ -35,20 +35,3 @@ Database: SQLite (default)
 Payment Gateway: Razorpay
 
 Other Tools: Git, GitHub
-
-
-
-
-bash
-Copy
-Edit
-pip install -r requirements.txt
-Set up environment variables
-
-
-📸 Screenshots
-Add screenshots of the home page, cart, checkout, order, etc. if needed.
-
-
-
-
