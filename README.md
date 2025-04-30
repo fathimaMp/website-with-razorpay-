@@ -66,14 +66,7 @@ Set up environment variables
 📸 Screenshots
 Add screenshots of the home page, cart, checkout, order, etc. if needed.
 
-✅ To Do
-Add unit tests
 
-Add product review/ratings
-
-Improve UI with TailwindCSS
-
-Email notifications
 
 🤝 Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
